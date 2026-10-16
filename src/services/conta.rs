@@ -14,7 +14,7 @@ impl Conta{
     self.saldo
     }
 
-    pub fn depositar(&mut self, valor: f64)-> Resulta<(), ErroOperacao>{
+    pub fn depositar(&mut self, valor: f64)-> Result<(), ErroOperacao>{
         if!self.ativa{
             return Err(ErroOperacao::ContaInativa);
         }
@@ -42,6 +42,7 @@ impl Conta{
         }
 
         self.saldo-=valor;
+
         Ok(())
     }
 }
